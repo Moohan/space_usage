@@ -1,0 +1,29 @@
+Package: spaceusage
+Title: Report on drive usage.
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "James",
+           family = "McMahon",
+           role = c("aut", "cre"),
+           email = "james.mcmahon@phs.scot",
+           comment = c(ORCID = "0000-0002-5380-2029"))
+Description: Package for reporting on drive usage, specifically within the PHS internal network.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    dplyr,
+    forcats,
+    fs,
+    magrittr,
+    stringr,
+    tibble,
+    tidyr
+Suggests: 
+    testthat,
+    covr,
+    ggplot2
+Config/testthat/edition: 3
+Config/testthat/parallel: true
