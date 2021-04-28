@@ -1,5 +1,5 @@
 Package: spaceusage
-Title: Report on drive usage.
+Title: Report on PHS drive usage
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "James",
@@ -18,9 +18,11 @@ Imports:
     forcats,
     fs,
     magrittr,
+    rlang,
     stringr,
     tibble,
-    tidyr
+    tidyr,
+    tidyselect
 Suggests: 
     testthat,
     covr,

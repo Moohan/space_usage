@@ -1,4 +1,8 @@
-# Function to get a list of fullname which can be matched to usernames
+#' Get a list of fullname which can be matched to usernames
+#'
+#' @return a [tibble][tibble::tibble-package]
+#' @export
+#' @importFrom rlang .data
 get_full_names <- function() {
   if (fs::file_exists(fs::path(tempdir(), "user_full_names.rds"))) {
     full_names <- readRDS(fs::path(tempdir(), "user_full_names.rds"))
@@ -9,9 +13,9 @@ get_full_names <- function() {
     ) %>%
       stats::na.omit() %>%
       tibble::as_tibble(.name_repair = ~ c("string", "user", "full_name")) %>%
-      dplyr::select(user, full_name) %>%
-      dplyr::mutate(full_name = stringr::str_squish(full_name)) %>%
-      dplyr::arrange(user)
+      dplyr::select(.data$user, .data$full_name) %>%
+      dplyr::mutate(full_name = stringr::str_squish(.data$full_name)) %>%
+      dplyr::arrange(.data$user)
 
     saveRDS(full_names, fs::path(tempdir(), "user_full_names.rds"), compress = FALSE)
   }
