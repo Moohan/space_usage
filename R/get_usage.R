@@ -19,17 +19,21 @@ get_usage <- function(drive) {
       TRUE ~ size
     )) %>%
     dplyr::mutate(
+      file_dir = stringr::str_remove(dirname(.data$path), fs::path("/conf", drive)),
+      top_folder = stringr::str_extract(.data$file_dir, "(\\w.+?)(?=[$/])"),
+      top_folder = dplyr::if_else(is.na(.data$top_folder), stringr::str_sub(.data$file_dir, 2), .data$top_folder),
       file_name = basename(.data$path),
-      file_type =
-        # Turn into a factor but group file types which don't contribute much
-        # 11 seems to produce reasonable plots but you could make this larger or smaller
-        forcats::fct_lump_n(fs::path_ext(.data$path),
+      file_type = fs::path_ext(.data$path),
+      file_type_lumped =
+      # Turn into a factor but group file types which don't contribute much
+      # 11 seems to produce reasonable plots but you could make this larger or smaller
+        forcats::fct_lump_n(.data$file_type,
           n = 7,
           w = .data$size,
           other_level = "Other / NA"
         ) %>%
-        # Group the NAs into the Other level
-        forcats::fct_explicit_na("Other / NA")
+          # Group the NAs into the Other level
+          forcats::fct_explicit_na("Other / NA")
     ) %>%
     dplyr::left_join(full_names, by = "user") %>%
     dplyr::arrange(dplyr::desc(.data$size))
