@@ -24,7 +24,7 @@ get_usage <- function(drive) {
         # Turn into a factor but group file types which don't contribute much
         # 11 seems to produce reasonable plots but you could make this larger or smaller
         forcats::fct_lump_n(fs::path_ext(.data$path),
-          n = 11,
+          n = 7,
           w = .data$size,
           other_level = "Other / NA"
         ) %>%
