@@ -4,12 +4,14 @@
 # spaceusage
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/Moohan/spaceusage/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Moohan/spaceusage/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 Space usage was intended to get and plot drive usage. As a side affect
 it can also get the full names of users with a given group membership.
 
-See [the documentation](https://moohan.github.io/space_usage/).
+See [the documentation](https://moohan.github.io/spaceusage/).
 
 ## Installation
 
