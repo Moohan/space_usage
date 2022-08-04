@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 # spaceusage
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/Moohan/spaceusage/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Moohan/spaceusage/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 Space usage was intended to get and plot drive usage. As a side affect it can
