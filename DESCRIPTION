@@ -2,17 +2,13 @@ Package: spaceusage
 Title: Report on PHS drive usage
 Version: 1.0.0
 Authors@R: 
-    person(given = "James",
-           family = "McMahon",
-           role = c("aut", "cre"),
-           email = "james.mcmahon@phs.scot",
+    person("James", "McMahon", , "james.mcmahon@phs.scot", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-5380-2029"))
-Description: Package for reporting on drive usage, specifically within the PHS internal network.
+Description: Package for reporting on drive usage, specifically within the
+    PHS internal network.
 License: MIT + file LICENSE
-Encoding: UTF-8
-LazyData: true
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+URL: https://moohan.github.io/space_usage/,
+    https://github.com/Moohan/space_usage
 Imports: 
     cli,
     dplyr,
@@ -27,10 +23,14 @@ Imports:
     tidyr,
     tidyselect
 Suggests: 
-    testthat,
     covr,
     roxygen2,
-    spelling
+    spelling,
+    testthat
 Config/testthat/edition: 3
 Config/testthat/parallel: true
-Language: en-US
+Encoding: UTF-8
+Language: en-GB
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
