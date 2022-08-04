@@ -3,3 +3,9 @@
 ^LICENSE\.md$
 ^README\.Rmd$
 ^codecov\.yml$
+^compress_files\.R$
+^get_and_plot_usage\.R$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$

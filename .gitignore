@@ -3,3 +3,6 @@
 .RData
 .Ruserdata
 .httr-oauth
+compress_files.R
+get_and_plot_usage.R
+docs

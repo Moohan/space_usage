@@ -2,16 +2,22 @@
 % Please edit documentation in R/get_group_membership.R
 \name{get_group_membership}
 \alias{get_group_membership}
-\title{Get all groups or users in a given group}
+\title{Get all groups or users in a given group (or groups)}
 \usage{
-get_group_membership(group_name = NULL)
+get_group_membership(group_name = NULL, group_name_exclude = NULL)
 }
 \arguments{
-\item{group_name}{name of a group, this is usually the same as a drive name}
+\item{group_name}{name of a group, this is usually the same as a drive name. Can be a vector of multiple groups.}
+
+\item{group_name_exclude}{Group or groups to exclude.}
 }
 \value{
 a \link[tibble:tibble-package]{tibble}
 }
 \description{
-Get all groups or users in a given group
+If given no parameters it will return a list of all
+possible groups. The first parameter \code{group_name}, can be a vector
+of groups, and it will return all users (and their full names) who
+have membership. The second parameter \code{group_name_exclude} can be
+used to find users except those in the supplied group(s).
 }

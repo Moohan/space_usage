@@ -1,6 +1,6 @@
 Package: spaceusage
 Title: Report on PHS drive usage
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R: 
     person(given = "James",
            family = "McMahon",
@@ -12,13 +12,16 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.1
 Imports: 
+    cli,
     dplyr,
     forcats,
     fs,
+    ggplot2,
     magrittr,
-    rlang,
+    readr,
+    rlang (>= 0.1.2),
     stringr,
     tibble,
     tidyr,
@@ -26,6 +29,8 @@ Imports:
 Suggests: 
     testthat,
     covr,
-    ggplot2
+    roxygen2,
+    spelling
 Config/testthat/edition: 3
 Config/testthat/parallel: true
+Language: en-US

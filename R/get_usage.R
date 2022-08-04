@@ -1,15 +1,26 @@
 #' Get the space usage of a given drive
 #'
-#' @param drive a drive name
+#' @description Given a drive name e.g. "hsciipd", "social-care",
+#' "linkage/output" etc. it will return the usage data. This will include
+#' all files, their locations, sizes, owners (with full name), and modification
+#' dates.
+#'
+#' @param drive a drive name e.g. "hscdiip" for "/conf/hscdiip"
 #' @return a [tibble][tibble::tibble-package]
 #' @export
-#' @importFrom rlang .data
 get_usage <- function(drive) {
-  full_names <- get_full_names()
+  drive_path <- fs::path("/conf", drive)
+
+  if (!fs::dir_exists(drive_path)) {
+    cli::cli_abort(c("The drive supplied: {.var {drive}}, was not found.",
+      "x" = "The path {.path {drive_path}} does not exist"
+    ))
+  }
 
   usage_data <- fs::dir_info(
-    path = fs::path("/conf", drive),
+    path = drive_path,
     type = "file",
+    all = TRUE,
     recurse = TRUE,
     fail = FALSE
   ) %>%
@@ -19,7 +30,7 @@ get_usage <- function(drive) {
       TRUE ~ size
     )) %>%
     dplyr::mutate(
-      file_dir = stringr::str_remove(dirname(.data$path), fs::path("/conf", drive)),
+      file_dir = stringr::str_remove(dirname(.data$path), drive_path),
       top_folder = stringr::str_extract(.data$file_dir, "(\\w.+?)(?=[$/])"),
       top_folder = dplyr::if_else(is.na(.data$top_folder), stringr::str_sub(.data$file_dir, 2), .data$top_folder),
       file_name = basename(.data$path),
@@ -35,7 +46,7 @@ get_usage <- function(drive) {
           # Group the NAs into the Other level
           forcats::fct_explicit_na("Other / NA")
     ) %>%
-    dplyr::left_join(full_names, by = "user") %>%
+    dplyr::left_join(get_full_names(), by = "user") %>%
     dplyr::arrange(dplyr::desc(.data$size))
 
   return(usage_data)

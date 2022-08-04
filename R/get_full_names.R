@@ -2,10 +2,9 @@
 #'
 #' @return a [tibble][tibble::tibble-package]
 #' @export
-#' @importFrom rlang .data
 get_full_names <- function() {
   if (fs::file_exists(fs::path(tempdir(), "user_full_names.rds"))) {
-    full_names <- readRDS(fs::path(tempdir(), "user_full_names.rds"))
+    full_names <- readr::read_rds(fs::path(tempdir(), "user_full_names.rds"))
   } else {
     full_names <- stringr::str_match(
       system("getent passwd", intern = TRUE),
@@ -17,7 +16,7 @@ get_full_names <- function() {
       dplyr::mutate(full_name = stringr::str_squish(.data$full_name)) %>%
       dplyr::arrange(.data$user)
 
-    saveRDS(full_names, fs::path(tempdir(), "user_full_names.rds"), compress = FALSE)
+    readr::write_rds(full_names, fs::path(tempdir(), "user_full_names.rds"))
   }
 
   return(full_names)

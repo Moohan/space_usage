@@ -7,11 +7,14 @@
 get_usage(drive)
 }
 \arguments{
-\item{drive}{a drive name}
+\item{drive}{a drive name e.g. "hscdiip" for "/conf/hscdiip"}
 }
 \value{
 a \link[tibble:tibble-package]{tibble}
 }
 \description{
-Get the space usage of a given drive
+Given a drive name e.g. "hsciipd", "social-care",
+"linkage/output" etc. it will return the usage data. This will include
+all files, their locations, sizes, owners (with full name), and modification
+dates.
 }

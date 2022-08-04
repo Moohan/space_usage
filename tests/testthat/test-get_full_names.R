@@ -1,3 +1,5 @@
+skip_on_ci()
+
 test_that("get full names returns as tibble and writes data", {
   full_names <- get_full_names()
   full_names_path <- fs::path(tempdir(), "user_full_names.rds")
@@ -7,5 +9,5 @@ test_that("get full names returns as tibble and writes data", {
   expect_gt(nrow(full_names), 100)
 
   expect_true(fs::file_exists(full_names_path))
-  expect_identical(full_names, readRDS(full_names_path))
+  expect_identical(full_names, readr::read_rds(full_names_path))
 })

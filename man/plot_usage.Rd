@@ -4,16 +4,22 @@
 \alias{plot_usage}
 \title{Plot usage data}
 \usage{
-plot_usage(usage_data, drive_name)
+plot_usage(usage_data, plot_title = NULL, by = c("user", "folder", "both"))
 }
 \arguments{
 \item{usage_data}{data provided by \code{\link[=get_usage]{get_usage()}}}
 
-\item{drive_name}{a drive name}
+\item{plot_title}{The title to use for the plot, by default it will try to
+guess the drive name and use that.}
+
+\item{by}{one of "user" (default), "folder" or "all" to split the plot by}
 }
 \value{
-a plot object from \link[tibble:tibble-package]{ggplot}
+a \link[ggplot2:ggplot2-package]{ggplot} plot object
 }
 \description{
 Plot usage data
+}
+\seealso{
+\code{\link[=get_usage]{get_usage()}}
 }
