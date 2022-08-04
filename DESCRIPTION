@@ -7,8 +7,8 @@ Authors@R:
 Description: Package for reporting on drive usage, specifically within the
     PHS internal network.
 License: MIT + file LICENSE
-URL: https://moohan.github.io/space_usage/,
-    https://github.com/Moohan/space_usage
+URL: https://moohan.github.io/spaceusage/,
+    https://github.com/Moohan/spaceusage
 Imports: 
     cli,
     dplyr,
