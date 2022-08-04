@@ -18,7 +18,7 @@ guess the drive name and use that.}
 a \link[ggplot2:ggplot2-package]{ggplot} plot object
 }
 \description{
-Plot usage data
+Creates a plot of the data provided by \code{\link[=get_usage]{get_usage()}}.
 }
 \seealso{
 \code{\link[=get_usage]{get_usage()}}

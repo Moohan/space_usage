@@ -1,6 +1,6 @@
 #' Plot usage data
 #'
-#' @description
+#' @description Creates a plot of the data provided by [get_usage()].
 #'
 #' @param usage_data data provided by [get_usage()]
 #' @param plot_title The title to use for the plot, by default it will try to
