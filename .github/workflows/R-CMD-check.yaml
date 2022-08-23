@@ -31,7 +31,6 @@ jobs:
           - {os: ubuntu-latest, r: 'oldrel-4', optional: false}
           - {os: ubuntu-latest, r: '3.6.1', optional: false}
           - {os: ubuntu-latest, r: '3.5.1', optional: true}
-          - {os: ubuntu-latest, r: '3.2.3', optional: true}
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
